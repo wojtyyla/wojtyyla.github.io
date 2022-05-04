@@ -1,0 +1,1196 @@
+* {
+    font-family: "Poppins", sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    outline: none;
+    border: none;
+    text-decoration: none;
+
+}
+
+*::selection {
+    background: #3c424f;
+    color: #E2E2E2;
+}
+
+html {
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+
+}
+
+body {
+    background: #E2E2E2;
+    min-height: 110vh;
+    overflow-x: hidden;
+    color: #000000;
+    --nav-height: 60px;
+    padding-top: var(--nav-height);
+}
+
+section,
+header,
+footer,
+#btnScrollToTop {
+    margin: 0% 8% 0% 8%;
+}
+
+@media(min-width: 1500px) {
+
+    section,
+    header,
+    footer,
+    #btnScrollToTop {
+        margin: 0% 10% 0% 10%;
+    }
+}
+
+@media(min-width: 1800px) {
+
+    section,
+    header,
+    footer,
+    #btnScrollToTop {
+        margin: 0% 15% 0% 15%;
+    }
+}
+
+*::before {
+    box-sizing: border-box;
+}
+
+.reveal {
+    position: relative;
+    transform: translateY(80px);
+    opacity: 0;
+    transition: all 2s ease;
+}
+
+.reveal.active {
+    transform: translateY(0px);
+    opacity: 1;
+}
+
+
+/* Navbar */
+
+/* .header-logo img {
+    height: 2.5rem;
+} */
+
+a.header-logo h3 {
+    color: #000000;
+    font-family: 'Playfair Display', serif;
+}
+
+.flex-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 3rem 8% 3rem 8%;
+    z-index: 1900;
+    height: var(--nav-height);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 1px;
+    transition: transform ease 0.3s;
+}
+
+@media(min-width: 1500px) {
+
+    .flex-nav {
+        padding: 3rem 10% 3rem 10%;
+    }
+}
+
+.flex-nav .menu {
+    display: flex;
+    align-items: center;
+}
+
+.menu p {
+    margin-right: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.nav-btn {
+    font-size: 16px;
+    color: white;
+    background-color: black;
+    padding: 2px 18px;
+    border-radius: 3px;
+    margin: 0 -7px;
+    cursor: pointer;
+}
+
+body.noscroll {
+    overflow: hidden;
+}
+
+html.noscroll {
+    overflow: hidden;
+}
+
+nav {
+    position: relative;
+}
+
+.nav--hidden {
+    transform: translateY(calc(-1 * var(--nav-height)));
+}
+
+.hamburger span {
+    display: block;
+    width: 1.55rem;
+    height: 0.19rem;
+    background-color: #000000;
+    border-radius: 1px;
+    transition: all 300ms ease-in-out;
+    transform-origin: 1px 1px;
+}
+
+.hamburger span:not(:last-child) {
+    margin-bottom: 5px;
+}
+
+.menu:hover .hover {
+    background: #3c424f;
+}
+
+.menu:hover {
+    color: #3c424f;
+    transition: all 300ms ease-in-out;
+}
+
+.header.open span:first-child {
+    transform: rotate(45deg);
+}
+
+.header.open span:nth-child(2) {
+    opacity: 0;
+}
+
+.header.open span:last-child {
+    transform: rotate(-45deg);
+}
+
+.header.open .overlay {
+    display: block;
+    animation: fade-in 300ms ease-in-out forwards;
+    z-index: 1800;
+}
+
+.overlay {
+    opacity: 0;
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    background: #121826;
+    animation: fade-out 300ms ease-in-out forwards;
+    color: #ffffff;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+}
+
+.mobile-menu {
+    position: absolute;
+    padding: 0rem;
+    padding-top: 7rem;
+    width: 100%;
+    margin-top: 4rem;
+}
+
+.mobile-menu a {
+    display: block;
+    color: #717c92;
+    padding: .2rem;
+    font-size: 2.5rem;
+    text-align: center;
+    font-weight: 600;
+    line-height: 3rem;
+}
+
+.mobile-menu a.social {
+    color: #3c424f;
+}
+
+.mobile-menu span {
+    color: #ffffff;
+}
+
+.overlay a:hover {
+    color: #ffffff;
+    transition: all 400ms ease-in-out;
+}
+
+.mobile-menu span:hover {
+    color: #ffffff;
+}
+
+.nav-btn {
+    font-size: 1.1rem;
+}
+
+.mobile-menu li {
+    list-style: none;
+}
+
+.mobile-menu ul {
+    padding: .6rem;
+    margin-top: .5rem;
+    color: black;
+    background-color: #F2EFE9;
+    text-decoration: none;
+}
+
+.mobile-menu li a {
+    font-size: .9rem;
+    padding: .35rem;
+}
+
+.item ul,
+input[type="checkbox"] {
+    display: none;
+}
+
+.item input:checked~ul {
+    display: block;
+}
+
+.item {
+    padding: .7rem;
+    font-size: 1.1rem;
+    text-align: center;
+}
+
+label {
+    margin-left: 1.5rem;
+}
+
+label:hover {
+    color: #F7313B;
+}
+
+@keyframes fade-in {
+    from {
+        visibility: hidden;
+        opacity: 0;
+    }
+
+    1% {
+        visibility: visible;
+        opacity: 0;
+    }
+
+    to {
+        visibility: visible;
+        opacity: 1;
+    }
+}
+
+@keyframes fade-out {
+    from {
+        visibility: visible;
+        opacity: 1;
+    }
+
+    99% {
+        visibility: visible;
+        opacity: 0;
+    }
+
+    to {
+        visibility: hidden;
+        opacity: 0;
+    }
+}
+
+/* Scroll to Top Button */
+
+#btnScrollToTop {
+    position: fixed;
+    right: 0;
+    bottom: 35px;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: none;
+    background: #3c424f;
+    color: #ffffff;
+    outline: none;
+    cursor: pointer;
+    font-size: 28px;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 2px;
+    pointer-events: none;
+    opacity: 0;
+    transition: all .4s;
+    text-decoration: none;
+}
+
+#btnScrollToTop.active {
+    opacity: 30%;
+    pointer-events: auto;
+    bottom: 100px;
+}
+
+#btnScrollToTop:hover {
+    opacity: 40%;
+}
+
+#btnScrollToTop:active {
+    background: #000000;
+    opacity: 100%;
+}
+
+/* ---------------- ! PROJECTS ! ---------------- */
+
+
+/* Banner */
+
+.banner-container .hero-text h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    line-height: 4.2rem;
+    font-weight: 500;
+    margin-top: 11rem;
+    cursor: default;
+}
+
+.hero-text span {
+    font-family: 'Playfair Display', serif;
+    font-size: 4.5rem;
+}
+
+.hero-text span:hover {
+    background: linear-gradient(90deg, #ff0000, #f5b609, #ff00f3, #5c99d6, #0033ff, #ff00c4, #ff0000);
+    background-size: 400%;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    -webkit-animation-timing-function: linear;
+    animation-timing-function: linear;
+    animation: animate 40s linear infinite;
+}
+
+@keyframes animate {
+    0% {
+        background-position: 0%;
+        opacity: 0%;
+    }
+
+    3% {
+        background-position: 70%;
+        opacity: 100%;
+    }
+
+    100% {
+        background-position: 400%;
+    }
+
+    3% {
+        background-position: 70%;
+        opacity: 100%;
+    }
+
+    0% {
+        background-position: 0%;
+        opacity: 0%;
+    }
+}
+
+.hero-text a {
+    color: black;
+}
+
+.hero-text a:hover {
+    color: #3c424f;
+}
+
+.banner-container i {
+    display: flex;
+    justify-content: center;
+    font-size: 2.2rem;
+    margin-top: 6rem;
+}
+
+
+/* Projects */
+
+h3.sub-heading {
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 0.5rem;
+    margin-top: 10rem;
+}
+
+h1.sub-heading {
+    font-size: 2.8rem;
+    font-weight: 700;
+}
+
+hr.titleLine {
+    width: 100%;
+    height: 0.23rem;
+    border: 0 none;
+    background-color: #000000;
+    margin-top: 1rem;
+    margin-bottom: 4rem;
+}
+
+.box-container img {
+    width: 100%;
+    height: 100%;
+}
+
+.box-container {
+    display: grid;
+    height: 320vh;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr;
+    grid-gap: .1rem;
+}
+
+.box-container2 {
+    display: grid;
+    height: 160vh;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr;
+    grid-gap: .1rem;
+}
+
+.grid {
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 5.5rem;
+}
+
+.grid-img {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    transition: .5s;
+}
+
+.grid-img.bukiecik {
+    background-position: 5rem;
+    background-size: 35rem;
+    /* background-image: url("/images/realizacje/bukiety/bukiet-1.jpg"); */
+    background-color: #121826;
+}
+
+.grid-img.biopur {
+    background-position: 5rem;
+    background-size: 35rem;
+    /* background-image: url("/images/realizacje/bukiety/bukiet-1.jpg"); */
+    background-color: #406575;
+}
+
+.grid-img.luminaPark {
+    background-position: 5rem;
+    background-size: 35rem;
+    /* background-image: url("/images/realizacje/bukiety/bukiet-1.jpg"); */
+    background-color: #454a55;
+}
+
+.grid-img.wypiekarnia {
+    background-position: 5rem;
+    background-size: 35rem;
+    /* background-image: url("/images/realizacje/bukiety/bukiet-1.jpg"); */
+    background-color: #0c3491;
+}
+
+.grid-img.photography {
+    background-position: 5rem;
+    background-size: 35rem;
+    /* background-image: url("/images/realizacje/bukiety/bukiet-1.jpg"); */
+    background-color: #a0a0a0;
+}
+
+.grid-img.graphics {
+    background-position: 5rem;
+    background-size: 35rem;
+    /* background-image: url("/images/realizacje/bukiety/bukiet-1.jpg"); */
+    background-color: #0c914a;
+}
+
+.grid-img:hover {
+    transform: scale(1.02);
+}
+
+.overly-left {
+    position: absolute;
+    width: 100%;
+    left: 0px;
+    bottom: 0px;
+    padding: 0rem 1.875rem 0.938rem 1.875rem;
+}
+
+.overly-left h2 {
+    font-size: 4.1rem;
+    color: black;
+    font-weight: 700;
+    line-height: 4rem;
+}
+
+.overly-left p {
+    font-size: 1.6rem;
+    margin-bottom: 0.625rem;
+    color: black;
+    font-weight: 600;
+}
+
+.overly-right {
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    padding: 0rem 1.875rem 0.938rem 1.875rem;
+    text-align: right;
+}
+
+.overly-right h2 {
+    font-size: 1.6rem;
+    color: black;
+    line-height: 1.7rem;
+    margin-bottom: .5rem;
+    font-family: 'Playfair Display', serif;
+}
+
+.overly-right p {
+    color: black;
+    font-size: 1rem;
+    margin-bottom: 1.02rem;
+    line-height: 1.2rem;
+    font-weight: 500;
+}
+
+.overly-right span {
+    color: #F7313B;
+    font-family: 'Playfair Display', serif;
+}
+
+.overly-right.biopur span {
+    color: #3191f7;
+}
+
+.overly-right.lumina span {
+    color: #ae31f7;
+}
+
+.overly-right.wypiekarnia span {
+    color: #f7a531;
+}
+
+.overly-right.photography span {
+    color: #393939;
+}
+
+.overly-right.graphics span {
+    color: #f79431;
+}
+
+@media(max-width: 965px) {
+    .box-container {
+        display: flex;
+        flex-direction: column;
+        height: 300vh;
+    }
+
+    .grid-img {
+        width: 100vw;
+        height: 100vw;
+    }
+}
+
+
+/* Footer */
+
+footer a {
+    color: black;
+}
+
+footer a:hover {
+    color: #3c424f;
+    transition: .01s;
+}
+
+footer h3 {
+    font-size: 1rem;
+    text-align: center;
+    margin-top: 8rem;
+    font-weight: 500;
+}
+
+footer h1 {
+    font-size: 2.8rem;
+    text-align: center;
+    font-weight: 700;
+}
+
+.letsWorkAndArrow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 8rem;
+}
+
+.letsWorkAndArrow i {
+    font-size: 2.8rem;
+}
+
+hr.footerLine {
+    width: 100%;
+    height: 0.23rem;
+    border: 0 none;
+    background-color: #000000;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template: 1fr/ 1fr 1fr 1fr;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.footerCopyright {
+    font-size: 0.8rem;
+    justify-self: start;
+    font-weight: 600;
+}
+
+.footerEmail {
+    font-size: 0.8rem;
+    justify-self: end;
+    font-weight: 600;
+}
+
+.footerSocialMedia {
+    color: #F7313B;
+    font-size: 1.8rem;
+    justify-self: center;
+}
+
+.footerSocialMedia .bxl-behance:hover,
+.footerSocialMedia .bxl-instagram-alt:hover,
+.footerSocialMedia .bxl-linkedin-square:hover {
+    transform: scale(1.05);
+    transition: .3s;
+}
+
+/* ----------------- ! ABOUT ! ----------------- */
+
+.aboutMeGridUno {
+    display: grid;
+    grid-template: 'aboutMeContainerDos . aboutMeContainerUno aboutMeContainerUno'1.6fr 'aboutMeContainerDos . experienceLine experienceLine'.1fr 'aboutMeContainerDos . experienceUno experienceDos'1fr / 1.5fr .5fr 1fr 1fr;
+    justify-items: center;
+    align-items: center;
+    margin: 5rem 0 0 0;
+    column-gap: 5px;
+    row-gap: 10px;
+}
+
+.aboutMeContainerUno {
+    grid-area: aboutMeContainerUno;
+}
+
+.aboutMeContainerDos {
+    grid-area: aboutMeContainerDos;
+    justify-self: end;
+}
+
+.experienceLine {
+    grid-area: experienceLine;
+}
+
+.experienceUno {
+    grid-area: experienceUno;
+    justify-self: start;
+    align-self: start;
+}
+
+.experienceDos {
+    grid-area: experienceDos;
+    justify-self: start;
+    align-self: start;
+}
+
+.aboutMeHeading2 {
+    font-size: 3rem;
+    font-weight: 700;
+}
+
+.aboutMeHeading3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+}
+
+.aboutMeHeading5 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+}
+
+.aboutMeText {
+    font-size: 1rem;
+    line-height: 1.5rem;
+    font-weight: 500;
+    margin-top: 1rem;
+}
+
+.contactMeInfo .aboutMeText {
+    margin-top: 0rem;
+}
+
+.contactMeInfo h2.aboutMeText {
+    margin-top: 5rem;
+}
+
+.aboutMeText2 {
+    font-size: 1rem;
+    line-height: 1rem;
+    font-weight: 500;
+    margin-top: 0rem;
+}
+
+.aboutMeText3 {
+    font-size: .8rem;
+    line-height: 1rem;
+    font-weight: 600;
+    margin-top: 0rem;
+}
+
+.aboutMeText4 {
+    font-size: 1rem;
+    line-height: 1rem;
+    font-weight: 700;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+p.aboutMeText4 a {
+    color: #000000;
+}
+
+hr.smallLine {
+    border: solid 2rem black;
+    width: 120vw;
+}
+
+.aboutMeGridUno img {
+    height: 500px;
+}
+
+h3.norev {
+    text-align: center;
+}
+
+.aboutMeGridDos {
+    text-align: center;
+}
+
+.mySkills {
+    display: flex;
+    margin-top: 3rem;
+}
+
+.whatIdo {
+    margin-right: 3rem;
+}
+
+.toolsIuse {
+    margin-left: 3rem;
+}
+
+.aboutMeHeading4 {
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+/* -------------- ! CONTACT ME ! -------------- */
+
+.contactMe {
+    margin-bottom: 5rem;
+}
+
+.contactMeGrid {
+    display: grid;
+    grid-template: 'contactMeInfo .'.5fr 'contactMeInfo contactForm'1fr 'contactMeInfo contactForm'1fr '. contactForm'.5fr/ 1fr 1fr;
+    justify-items: center;
+    align-items: center;
+    margin-top: 5rem;
+    column-gap: 5px;
+    row-gap: 10px;
+}
+
+.contactMeInfo {
+    grid-area: contactMeInfo;
+    align-self: start;
+    justify-self: start;
+}
+
+.contactForm {
+    grid-area: contactForm;
+    align-self: center;
+    justify-self: end;
+}
+
+.contactForm h3.aboutMeText2 {
+    margin-bottom: 1.5rem;
+}
+
+.contactMeInfo h1 {
+    margin-bottom: 5rem;
+}
+
+.contactMeInfo hr {
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+}
+
+.contactEmail {
+    display: flex;
+    align-items: center;
+}
+
+.contactLocation {
+    display: flex;
+    align-items: center;
+}
+
+.bx.bx-target-lock,
+.bx.bx-envelope {
+    background-color: #000000;
+    border-radius: 5rem;
+    color: #ffffff;
+    padding: 1rem;
+    margin-right: 1rem;
+    margin-bottom: .8rem;
+    font-size: 1.3rem;
+}
+
+form {
+    position: relative;
+    width: 30rem;
+    height: 4rem;
+    margin-bottom: 26rem;
+}
+
+.form.input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 3px solid #3c424f;
+    border-radius: .3rem;
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: 500;
+    color: black;
+    outline: none;
+    padding: 1.25rem;
+    background: none;
+}
+
+.form.input:hover {
+    border-color: #717c92;
+}
+
+.form.input:focus {
+    border-color: #000000;
+}
+
+.form.label {
+    position: absolute;
+    left: 0;
+    top: 1.2rem;
+    padding: 0 0.5rem;
+    color: black;
+    font-weight: 500;
+    cursor: text;
+    transition: top 200ms ease-in,
+        left 200ms ease-in,
+        font-size 200ms ease-in;
+    background-color: #E2E2E2;
+}
+
+textarea.form.input {
+    height: 15rem;
+}
+
+.form.input:focus~.form.label,
+.form.input:not(:placeholder-shown).form.input:not(:focus)~.form.label {
+    top: -.6rem;
+    font-size: .8rem;
+    left: 0;
+    font-weight: 600;
+}
+
+#email {
+    margin-top: 5rem;
+}
+
+#message {
+    margin-top: 10rem;
+}
+
+.reset {
+    border-radius: .2rem;
+    color: #000000;
+    margin-top: 1rem;
+    padding: 1.5rem 1.5rem 1.5rem 0rem;
+    font-size: inherit;
+    font-weight: 500;
+    cursor: pointer;
+    background: none;
+}
+
+.reset:hover {
+    text-decoration: underline;
+}
+
+.submit {
+    border-radius: .2rem;
+    color: #ffffff;
+    margin-top: 1rem;
+    padding: 1rem 1.5rem;
+    background-color: #000000;
+    font-size: inherit;
+    font-weight: 500;
+    border: none;
+    cursor: pointer;
+}
+
+.submit:hover {
+    background-color: #3c424f;
+}
+
+.submit:focus {
+    background-color: #717c92;
+}
+
+button.submit {
+    margin-top: 26rem;
+}
+
+/* -------------- ! PROJECTS ! -------------- */
+
+.projectTitle {
+    margin-top: 14rem;
+}
+
+.realizacje-page-menu {
+    display: block;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.2rem 2rem 1.2rem 2rem;
+    text-align: center;
+    white-space: nowrap;
+    margin-bottom: 1rem;
+}
+
+.realizacje-page-menu li {
+    list-style: none;
+
+}
+
+.notcurrent-project {
+    margin: 0 0.625rem;
+}
+
+.last-project {
+    margin: 0 0 0 0.625rem;
+}
+
+.realizacje-page-menu li a {
+    color: #000000;
+    font-size: 1rem;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.kropka {
+    font-size: 1rem;
+    color: #000000;
+}
+
+.realizacje-page-menu li a:hover {
+    color: #3c424f;
+}
+
+.realizacje-page-menu span {
+    font-weight: 600;
+}
+
+.title-img-bukiecik {
+    background-color: #F7313B;
+    width: 100%;
+    height: 20rem;
+    margin-top: 14rem;
+    margin-bottom: 10rem;
+}
+
+.current-project {
+    margin: 0 0.625rem 0 0;
+}
+
+section.project {
+    margin-top: 5rem;
+}
+
+.projectInfo {
+    display: grid;
+    grid-template: 'projectInfoTable . project-long-text'1fr 'projectInfoTable . project-long-text'1fr '. . project-long-text'1fr/.7fr .3fr 1fr;
+    column-gap: 1rem;
+    margin-top: 10rem;
+    margin-bottom: 10rem;
+}
+
+.projectInfoTable {
+    grid-area: projectInfoTable;
+}
+
+.project-long-text {
+    grid-area: project-long-text;
+}
+
+.aboutMeText.nomargin {
+    margin-top: 0;
+    line-height: 2.3rem;
+}
+
+.footerLine.nomargin {
+    margin-top: 0;
+}
+
+.aboutMeHeading3.small {
+    font-size: 1.6rem;
+    line-height: 2rem;
+}
+
+.parallax-full {
+    background: transparent;
+}
+
+.parallax-full {
+    height: auto !important;
+    width: 100% !important;
+    padding: 150% 0 0;
+    background-attachment: fixed;
+}
+
+.parallax-full img {
+    width: 100% !important;
+    height: 100% !important;
+}
+
+.split {
+    width: 50%;
+}
+
+.split.right {
+    margin-top: 15.625rem;
+}
+
+.parallax-grid {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 10rem;
+}
+
+.parallax-grid-1 {
+    margin-right: 2%;
+    margin-bottom: 2.5rem;
+}
+
+.parallax-grid-2 {
+    margin-left: 2%;
+    margin-bottom: 2.5rem;
+}
+
+.para-ver1 {
+    padding: 100% 0 0;
+}
+
+.parallax-full.big {
+    padding: 70% 0 0;
+}
+
+.parallax-text {
+    display: block;
+    text-align: center;
+    margin-bottom: 2.5rem;
+    margin: 0 auto;
+    max-width: 19.875rem;
+    font-size: 1rem;
+    padding: 2.5rem 0 3.75rem 0;
+}
+
+.project-photo-bukiecik {
+    background-color: #F7313B;
+    width: 100%;
+    height: 40rem;
+    margin-top: 1rem;
+}
+
+.project-photo-bukiecik2 {
+    background-color: #F7313B;
+    width: 49%;
+    height: 40rem;
+    margin-top: 1rem;
+}
+
+.nextProject {
+    font-weight: 700;
+    font-size: 2.8rem;
+    text-align: center;
+    color: #000000;
+}
+
+.aboutMeText.reveal.edit {
+    text-align: center;
+    color: #000000;
+}
+
+.projects-navigation {
+    display: grid;
+    grid-template: 1fr/1fr 1fr;
+    margin-top: 5rem;
+}
+
+.letsWorkAndArrow.reveal.edit {
+    margin-bottom: 5rem;
+}
+
+.projects-navigation i.bx.bx-left-arrow-alt,
+.projects-navigation i.bx.bx-right-arrow-alt {
+    color: #000000;
+}
+
+.letsWorkAndArrow.reveal:hover {
+    color: #000000;
+}
+
+
+
+@media (max-width: 965px) {
+    .realizacje-page-menu {
+        overflow: auto;
+        padding: 1rem 6vw;
+    }
+}
